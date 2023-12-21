@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function printMatrixColumns(matrix) {
+            var rows = matrix.length;
+            var columns = matrix[0].length;
+
+            // Выполните итерацию по каждому столбцу
+            for (let col = 0; col < columns; col++) {
+                var columnElements = [];
+
+                // Собираем элементы текущего столбца
+                for (let row = 0; row < rows; row++) {
+                    columnElements.push(matrix[row][col]);
+                }
+
+                // Отобразить весь столбец целиком
+                var resultParagraph = document.createElement('p');
+                resultParagraph.textContent = `Колонна ${col + 1}: [${columnElements.join(', ')}]`;
+                document.body.appendChild(resultParagraph);
+            }
+        }
+
+        // Запросите у пользователя количество строк и столбцов
+        var rows = parseInt(prompt('Введите количество строк'));
+        var columns = parseInt(prompt('Введите количество колонн'));
+
+        // Создаем матрицу
+        var inputMatrix = [];
+
+        // Ввод пользовательских переменных
+        for (let i = 0; i < rows; i++) {
+            var row = [];
+            for (let j = 0; j < columns; j++) {
+                var element = parseFloat(prompt(`Введите элемент в строке ${i + 1}, колонне ${j + 1}`));
+                row.push(element);
+            }
+            inputMatrix.push(row);
+        }
+
+        // Функция печати столбцов
+        printMatrixColumns(inputMatrix);
+    </script>
+</body>
+</html>
