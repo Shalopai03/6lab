@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function sign(x) {
+            if (x > 0) {
+                return 1;
+            } else if (x < 0) {
+                return 0;
+            } else {
+                return 0;
+            }
+        }
+
+        // Пользовательский ввод
+        const A = parseFloat(prompt('Введите A'));
+        const B = parseFloat(prompt('Введите B'));
+        const C = parseFloat(prompt('Введите C'));
+
+        // Проверяем ввод
+        if (!isNaN(A) && !isNaN(B) && !isNaN(C)) {
+            // Складываем А В С
+            const result = sign(A) + sign(B) + sign(C);
+
+            // Выводим результат
+            const resultParagraph = document.createElement('p');
+            resultParagraph.textContent = `sign(A) + sign(B) + sign(C) = ${result}`;
+            document.body.appendChild(resultParagraph);
+        } else {
+            alert('Неправильный ввод, введите числа.');
+        }
+    </script>
+</body>
+</html>
