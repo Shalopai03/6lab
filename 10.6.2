@@ -5,25 +5,12 @@
 <body>
     <script>
         function printMatrixColumns(matrix) {
-            var rows = matrix.length;
-            var columns = matrix[0].length;
-
-            // Выполните итерацию по каждому столбцу
-            for (let col = 0; col < columns; col++) {
-                var columnElements = [];
-
-                // Собираем элементы текущего столбца
-                for (let row = 0; row < rows; row++) {
-                    columnElements.push(matrix[row][col]);
-                }
-
-                // Отобразить весь столбец целиком
-                var resultParagraph = document.createElement('p');
-                resultParagraph.textContent = `Колонна ${col + 1}: [${columnElements.join(', ')}]`;
-                document.body.appendChild(resultParagraph);
-            }
+            matrix.forEach((row, rowIndex) => {
+                const columnElements = row.map((element, colIndex) => matrix[colIndex][rowIndex]);
+                document.body.innerHTML += `<p>Column ${rowIndex + 1}: [${columnElements.join(', ')}]</p>`;
+            });
         }
-
+        
         // Запросите у пользователя количество строк и столбцов
         var rows = parseInt(prompt('Введите количество строк'));
         var columns = parseInt(prompt('Введите количество колонн'));
